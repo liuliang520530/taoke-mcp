@@ -15,12 +15,6 @@ startCommand:
           "env": {
             "ENV_URL": "http://rap2api.taobao.org/app/mock/304812/taoke-mcp",
             "ENV_SECRET": "url:mcp.sinataoke.cn",
-            "ENV_OVERRIDE": "false",
-            "TAOBAO_PID": "淘宝PID",
-            "TAOBAO_SESSION": "淘宝授权token，上面有授权链接，授权后，复制token到这里",
-            "JD_KEY": "union.jd.com上去取",
-            "JD_PID": "union.jd.com上去取",
-            "PDD_PID": "拼多多PID",
-            "PDD_SESSION_TOKEN": "拼多多授权token，上面有授权链接"
+            "ENV_OVERRIDE": "true",
           }
         })
