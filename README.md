@@ -6,6 +6,14 @@
 
 https://github.com/liuliang520530/taoke-mcp/
 
+## 视频教程
+
+https://www.bilibili.com/video/BV1tE5jzLEMu/
+
+## 官方文档
+
+https://mcp.sinataoke.cn/docs
+
 ## 在 Cherry Studio 上的工具展示
 
 ![Project Screenshot](./screenshot.png)
