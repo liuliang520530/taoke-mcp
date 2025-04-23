@@ -77,7 +77,7 @@ https://jinbao.pinduoduo.com/open.html?client_id=313cc43a30cf487da0a336d9f2df7de
 				"npx",
 				"-y",
 				"@liuliang520500/sinataoke_cn@latest",
-				"g:win11desktop/logs/"
+				"g:win11desktop/logs/" // 可选，日志文件夹路径,，如果要填写，要换成你自己本地电脑上的一个文件夹
 			],
 			"env": {
 				"ENV_URL": "http://rap2api.taobao.org/app/mock/304812/taoke-mcp",
