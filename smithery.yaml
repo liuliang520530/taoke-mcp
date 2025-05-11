@@ -1,0 +1,43 @@
+# Smithery.ai configuration
+startCommand:
+    type: stdio
+    configSchema:
+        type: object
+        properties:
+            TAOBAO_PID:
+                type: string
+                description: '淘宝联盟PID'
+            TAOBAO_SESSION:
+                type: string
+                description: '淘宝授权ID'
+            JD_KEY:
+                type: string
+                description: '京东联盟KEY'
+            JD_PID:
+                type: string
+                description: '京东联盟PID'
+            PDD_PID:
+                type: string
+                description: '拼多多PID'
+            PDD_SESSION_TOKEN:
+                type: string
+                description: '拼多多授权token'
+    commandFunction: |
+        (config) => ({
+            "command": "npx",
+            "args": [
+                "-y",
+                "@liuliang520500/sinataoke_cn@latest"
+            ],
+            "env": {
+                "ENV_URL": "http://rap2api.taobao.org/app/mock/304812/taoke-mcp",
+                "ENV_SECRET": "url:mcp.sinataoke.cn",
+                "ENV_OVERRIDE": "false",
+                "TAOBAO_PID": config.TAOBAO_PID,
+                "TAOBAO_SESSION": config.TAOBAO_SESSION,
+                "JD_KEY": config.JD_KEY,
+                "JD_PID": config.JD_PID,
+                "PDD_PID": config.PDD_PID,
+                "PDD_SESSION_TOKEN": config.PDD_SESSION_TOKEN
+            }
+        })

@@ -1,0 +1,62 @@
+{
+	"name": "@liuliang520500/sinataoke_cn",
+	"version": "1.1.47",
+	"description": "淘宝联盟，京东联盟，多多进宝全平台MCP服务 - 支持淘宝、京东、拼多多平台",
+	"type": "commonjs",
+	"main": "dist/index.js",
+	"bin": {
+		"sinataoke_cn": "dist/cli.js"
+	},
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"keywords": [
+		"mcp",
+		"taobao",
+		"jd",
+		"pdd",
+		"淘宝客",
+		"claude"
+	],
+	"author": "vx:liuliangzheng",
+	"license": "ISC",
+	"dependencies": {
+		"@anthropic-ai/sdk": "^0.39.0",
+		"@liuliang520500/jd-sdk": "^1.0.5",
+		"@liuliang520500/pdd-sdk-new": "^1.0.2",
+		"@liuliang520500/taobao-topclient": "^1.0.0",
+		"@modelcontextprotocol/sdk": "^1.8.0",
+		"@types/winston": "^2.4.4",
+		"axios": "^1.6.7",
+		"chalk": "^5.4.1",
+		"dotenv": "^16.4.7",
+		"form-data": "^4.0.0",
+		"iconv-lite": "^0.6.3",
+		"jsonwebtoken": "^9.0.2",
+		"mime": "^3.0.0",
+		"node-fetch": "^3.3.2",
+		"request": "^2.88.2",
+		"urlencode": "^1.1.0",
+		"winston": "^3.11.0",
+		"ws": "^8.16.0",
+		"zod": "^3.22.4"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/liuliang520500/sinataoke_cn"
+	},
+	"bugs": {
+		"url": "https://github.com/liuliang520500/sinataoke_cn/issues"
+	},
+	"homepage": "https://github.com/liuliang520500/sinataoke_cn#readme",
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@types/jsonwebtoken": "^9.0.9"
+	}
+}
