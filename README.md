@@ -26,7 +26,7 @@ https://mcp.sinataoke.cn/docs
 
 ```
 # 环境变量加载配置
-ENV_URL=http://rap2api.taobao.org/app/mock/304812/taoke-mcp/envdata
+ENV_URL=https://config.sinataoke.cn/api/mcp/secret
 ENV_SECRET=url:mcp.sinataoke.cn
 ENV_OVERRIDE=false  # 可选，是否覆盖当前已存在的环境变量，这个一定要为false，不然下面的配置将不生效
 
@@ -80,7 +80,7 @@ https://jinbao.pinduoduo.com/open.html?client_id=313cc43a30cf487da0a336d9f2df7de
 				"g:win11desktop/logs/" // 可选，日志文件夹路径,，如果要填写，要换成你自己本地电脑上的一个文件夹
 			],
 			"env": {
-				"ENV_URL": "http://rap2api.taobao.org/app/mock/304812/taoke-mcp/envdata",
+				"ENV_URL": "https://config.sinataoke.cn/api/mcp/secret",
 				"ENV_SECRET": "url:mcp.sinataoke.cn",
 				"ENV_OVERRIDE": "false",
 				"TAOBAO_PID": "淘宝PID",
