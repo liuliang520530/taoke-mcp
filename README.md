@@ -18,6 +18,9 @@ https://mcp.sinataoke.cn/docs
 
 ![Project Screenshot](./screenshot.png)
 
+## 交流群，扫码入群
+![Project Screenshot](./qr.png)
+
 # 使用方法
 
 ### 环境变量配置
@@ -71,10 +74,8 @@ https://jinbao.pinduoduo.com/open.html?client_id=313cc43a30cf487da0a336d9f2df7de
 			"name": "导购助手",
 			"type": "stdio",
 			"isActive": true,
-			"command": "cmd",
+			"command": "npx",
 			"args": [
-				"/c",
-				"npx",
 				"-y",
 				"@liuliang520500/sinataoke_cn@latest",
 				"g:win11desktop/logs/" // 可选，日志文件夹路径,，如果要填写，要换成你自己本地电脑上的一个文件夹
