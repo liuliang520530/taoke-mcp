@@ -1,18 +1,27 @@
-FROM node:18-alpine
+FROM alpine AS builder
+COPY . /tmp/build/
+RUN set -x \
+  # 配置国内镜像源，第一个是>表示覆盖，后面的>>表示追加
+  && echo "https://mirrors.aliyun.com/alpine/latest-stable/main" > /etc/apk/repositories \
+  && echo "https://mirrors.aliyun.com/alpine/latest-stable/community" >> /etc/apk/repositories \
+  && echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/main" >> /etc/apk/repositories \
+  && echo "https://repo.huaweicloud.com/alpine/latest-stable/main" >> /etc/apk/repositories \
+  && echo "http://mirrors.ustc.edu.cn/alpine/latest-stable/main" >> /etc/apk/repositories \
+  && apk update \
+  && apk add nodejs npm \
+  && npm i -g pnpm@8.3.1 pm2 --registry=https://registry.npmmirror.com/ \
+  && cd /tmp/build \
+  && rm -rf node_modules \
+  && pnpm install --registry=https://registry.npmmirror.com/
 
-WORKDIR /app
+FROM node:20.11.1-alpine
+USER root
+WORKDIR /server
 
-# 安装必要的构建工具
-RUN apk add --no-cache python3 make g++
-
-# 复制 package 文件
-COPY package*.json ./
-
-# 安装依赖
-RUN npm install
-
-# 复制应用代码
-COPY . .
+COPY --from=builder /usr/local/lib/node_modules/. /usr/local/lib/node_modules/
+COPY --from=builder /usr/local/bin/. /usr/local/bin/
+COPY --from=builder /tmp/build/node_modules/. /server/node_modules/
+COPY . /server/
 
 # 设置环境变量
 ENV NODE_ENV=production
@@ -24,4 +33,4 @@ ENV ENV_SECRET=url:mcp.sinataoke.cn
 # EXPOSE 3000
 
 # 启动命令
-CMD ["npx", "-y", "@liuliang520500/sinataoke_cn@latest"]
+CMD [ "pm2-runtime", "start", "/server/dist/index.js" ]
