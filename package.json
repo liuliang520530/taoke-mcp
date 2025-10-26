@@ -4,6 +4,10 @@
 	"description": "淘宝联盟，京东联盟，多多进宝全平台MCP服务 - 支持淘宝、京东、拼多多平台",
 	"type": "commonjs",
 	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"scripts": {
+    "dev": "npx smithery dev"
+  	},
 	"bin": {
 		"sinataoke_cn": "dist/cli.js"
 	},
@@ -57,6 +61,7 @@
 		"access": "public"
 	},
 	"devDependencies": {
+		"@smithery/cli": "^1.6.3",
 		"@types/jsonwebtoken": "^9.0.9"
 	}
 }
