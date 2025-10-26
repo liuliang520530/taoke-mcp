@@ -23,7 +23,7 @@ COPY --from=builder /usr/local/bin/. /usr/local/bin/
 COPY --from=builder /tmp/build/node_modules/. /server/node_modules/
 COPY . /server/
 
-RUN npm install --production --ignore-scripts
+# RUN npm install --production --ignore-scripts
 
 # 设置环境变量
 ENV NODE_ENV=production
@@ -35,4 +35,4 @@ ENV ENV_SECRET=url:mcp.sinataoke.cn
 EXPOSE 8080
 
 # 启动命令
-CMD ["node", "dist/index.js", "--transport", "http", "--port", "8080"]
+CMD ["node", "/server/dist/index.js", "--transport", "http", "--port", "8080"]
