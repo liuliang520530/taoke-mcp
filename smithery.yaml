@@ -1,4 +1,5 @@
 # Smithery.ai configuration
+runtime: "container"
 startCommand:
     type: stdio
     configSchema:
