@@ -16,4 +16,4 @@ ENV ENV_SECRET=url:mcp.sinataoke.cn
 EXPOSE 8080
 
 # 启动命令
-CMD ["node", "/server/dist/index.js", "--transport", "http", "--port", "8080"]
+CMD ["node", "/server/dist/smithery.js", "--transport", "http", "--port", "8080"]
