@@ -1,7 +1,7 @@
 # Smithery.ai configuration
 runtime: "container"
 startCommand:
-    type: http
+    type: stdio
     configSchema:
         type: object
         description: No configuration required
