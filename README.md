@@ -1,5 +1,7 @@
 # 淘宝客 MCP 服务
 
+[![smithery badge](https://smithery.ai/badge/@liuliang520530/taoke-mcp)](https://smithery.ai/server/@liuliang520530/taoke-mcp)
+
 淘宝联盟，京东联盟，多多进定全平台 MCP 服务是一个基于 Model Context Protocol (MCP) 的服务，支持淘宝、京东、拼多多三大电商平台的链接转换和商品推广功能，商品搜索等等一系列工具
 
 # github:
@@ -62,6 +64,16 @@ https://jinbao.pinduoduo.com/open.html?client_id=313cc43a30cf487da0a336d9f2df7de
 # 与 Claude Desktop 或 Cherry Studio 集成
 
 要在 Claude Desktop 中使用此服务
+
+### 安装 MCP 服务
+
+### Installing via Smithery
+
+To install Taoke Affiliate automatically via [Smithery](https://smithery.ai/server/@liuliang520530/taoke-mcp):
+
+```bash
+npx -y @smithery/cli install @liuliang520530/taoke-mcp
+```
 
 ### 使用 MCP 配置文件
 
