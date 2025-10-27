@@ -9,7 +9,7 @@ RUN npm install --production --ignore-scripts
 # 设置环境变量
 ENV NODE_ENV=production
 ENV ENV_OVERRIDE=false
-ENV ENV_URL=http://rap2api.taobao.org/app/mock/304812/taoke-mcp
+ENV ENV_URL=http://config.sinataoke.cn/api/mcp/secret
 ENV ENV_SECRET=url:mcp.sinataoke.cn
 
 # Expose HTTP port
