@@ -6,8 +6,9 @@
 	"main": "dist/index.js",
 	"module": "dist/smithery.js",
 	"scripts": {
-    "dev": "npx smithery dev"
-  	},
+		"start": "node dist/smithery.js",
+		"dev": "npx smithery dev"
+	},
 	"bin": {
 		"sinataoke_cn": "dist/cli.js"
 	},
