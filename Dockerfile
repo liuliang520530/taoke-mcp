@@ -10,8 +10,8 @@ RUN npm install --production --ignore-scripts
 ENV NODE_ENV=production
 ENV ENV_OVERRIDE=false
 ENV ENV_URL=http://config.sinataoke.cn/api/mcp/secret
-ENV ENV_SECRET=url:mcp.sinataoke.cn
 ENV PORT=8081
+# ENV_SECRET 应在运行时通过 -e 参数传入，不在镜像中硬编码
 
 # Expose HTTP port
 EXPOSE 8081
