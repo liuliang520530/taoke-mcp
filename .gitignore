@@ -2,3 +2,4 @@ node_modules/
 .smithery
 .npmignore
 .env.example
+QUALITY_IMPROVEMENTS.md

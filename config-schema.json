@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "淘客 MCP 服务器配置",
+  "description": "MCP 电商服务配置 schema,支持淘宝、京东和拼多多三个平台的联盟营销 API",
+  "type": "object",
+  "properties": {
+    "taobao": {
+      "type": "object",
+      "description": "淘宝联盟配置",
+      "properties": {
+        "session": {
+          "type": "string",
+          "description": "淘宝 Access Token (会话密钥)",
+          "env": "TAOBAO_SESSION"
+        },
+        "siteId": {
+          "type": "string",
+          "description": "淘宝推广位 Site ID (可从 PID 自动提取)",
+          "env": "TAOBAO_SITE_ID"
+        },
+        "adzoneId": {
+          "type": "string",
+          "description": "淘宝推广位 Adzone ID (可从 PID 自动提取)",
+          "env": "TAOBAO_ADZONE_ID"
+        },
+        "pid": {
+          "type": "string",
+          "description": "淘宝完整 PID,格式: mm_{site_id}_{adzone_id}_{xxx}。如果提供,会自动提取 siteId 和 adzoneId",
+          "env": "TAOBAO_PID",
+          "pattern": "^mm_\\d+_\\d+_\\d+$"
+        }
+      },
+      "required": ["pid","session"]
+    },
+    "jd": {
+      "type": "object",
+      "description": "京东联盟配置",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "京东联盟 Key",
+          "env": "JD_KEY",
+          "minLength": 1
+        },
+        "unionId": {
+          "type": "string",
+          "description": "京东联盟 ID (可从 PID 自动提取)",
+          "env": "JD_UNION_ID"
+        },
+        "siteId": {
+          "type": "string",
+          "description": "京东推广位 Site ID (可从 PID 自动提取)",
+          "env": "JD_SITE_ID"
+        },
+        "pid": {
+          "type": "string",
+          "description": "京东完整 PID,格式: {union_id}_{site_id}_{xxx}。如果提供,会自动提取 unionId 和 siteId",
+          "env": "JD_PID"
+        }
+      },
+      "required": ["key","pid"]
+    },
+    "pdd": {
+      "type": "object",
+      "description": "拼多多联盟配置",
+      "properties": {
+        "pid": {
+          "type": "string",
+          "description": "拼多多推广位 PID",
+          "env": "PDD_PID",
+          "minLength": 1
+        },
+        "sessionToken": {
+          "type": "string",
+          "description": "拼多多 Access Token",
+          "env": "PDD_SESSION_TOKEN"
+        }
+      },
+      "required": ["pid","PDD_SESSION_TOKEN"]
+    },
+    "server": {
+      "type": "object",
+      "description": "服务器配置",
+      "properties": {
+        "secret": {
+          "type": "string",
+          "description": "用于加密/解密的密钥 (可选)",
+          "env": "SERVER_SECRET"
+        },
+        "envUrl": {
+          "type": "string",
+          "description": "从网络加载加密环境变量的 URL",
+          "env": "ENV_URL",
+          "format": "uri",
+          "default": "https://config.sinataoke.cn/api/mcp/secret"
+        },
+        "envSecret": {
+          "type": "string",
+          "description": "用于验证网络的密钥",
+          "env": "ENV_SECRET",
+          "default": "url:mcp.sinataoke.cn"
+        },
+        "envOverride": {
+          "type": "boolean",
+          "description": "是否使用内置的配置，如果为true，用户设置的env将被覆盖",
+          "env": "ENV_OVERRIDE",
+          "default": false
+        },
+        "port": {
+          "type": "integer",
+          "description": "HTTP 服务器监听端口 (Smithery 部署时使用)",
+          "env": "PORT",
+          "default": 8081,
+          "minimum": 1,
+          "maximum": 65535
+        }
+      }
+    }
+  }
+}
