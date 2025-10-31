@@ -54,26 +54,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # 调试：检查 README.md 是否存在
-      - name: Debug - Show README.md content
-        run: |
-          echo "=== README.md 内容开始 ==="
-          cat README.md || echo "README.md 不存在！"
-          echo "=== README.md 内容结束 ==="
-          echo "当前目录文件列表："
-          ls -la
-
-      # 同步 README 到 Docker Hub
-      - name: Update Docker Hub Description
-        uses: peter-evans/dockerhub-description@v4
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: liuliang520500/taoke-mcp
-          readme-filepath: ${{ github.workspace }}/README.md
-        env:
-          DEBUG: true
-
       # 设置 Node.js 环境（用于发布到 npm）
       - name: Setup Node.js
         uses: actions/setup-node@v4
