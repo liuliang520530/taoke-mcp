@@ -16,3 +16,11 @@ logs
 
 # 源码映射文件
 *.map
+
+node_modules/
+.smithery
+.npmignore
+.env.example
+QUALITY_IMPROVEMENTS.md
+out\DOCKER_DEPLOY.md
+

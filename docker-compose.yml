@@ -1,0 +1,99 @@
+version: '3.8'
+
+services:
+  taoke-mcp:
+    # 镜像名称 - 推送到 Docker Hub 时使用你的用户名
+    # 例如: your-username/taoke-mcp:latest
+    image: taoke-mcp:latest
+
+    # 容器名称
+    container_name: taoke-mcp-server
+
+    # 重启策略 - 除非手动停止，否则总是重启
+    restart: unless-stopped
+
+    # 端口映射
+    ports:
+      - "8081:8081"
+
+    # 环境变量配置
+    environment:
+      # 服务端口
+      - PORT=8081
+
+      # 生产环境标识
+      - NODE_ENV=production
+
+      # 环境变量覆盖设置
+      - ENV_OVERRIDE=false
+
+      # 远程环境变量 URL（可选）
+      - ENV_URL=http://config.sinataoke.cn/api/mcp/secret
+
+      # 远程环境变量密钥（运行时设置，不要提交到代码仓库）
+      # - ENV_SECRET=your_secret_here
+
+      # 时区设置（已在 Dockerfile 中设置，这里可选）
+      - TZ=Asia/Shanghai
+
+      # ========================================
+      # 以下环境变量可以通过 headers 传递或在此设置
+      # ========================================
+
+      # 淘宝联盟配置（可选，优先使用 headers）
+      # - TAOBAO_SESSION=your_session
+      # - TAOBAO_PID=mm_xxx_xxx_xxx
+      # 或分别设置:
+      # - TAOBAO_SITE_ID=xxx
+      # - TAOBAO_ADZONE_ID=xxx
+
+      # 京东联盟配置（可选，优先使用 headers）
+      # - JD_KEY=your_key
+      # - JD_PID=xxx_xxx_xxx
+      # 或分别设置:
+      # - JD_UNION_ID=xxx
+      # - JD_SITE_ID=xxx
+
+      # 拼多多联盟配置（可选，优先使用 headers）
+      # - PDD_PID=your_pid
+
+    # 卷挂载 - 持久化日志（可选）
+    volumes:
+      # 挂载日志目录到宿主机
+      - ./logs:/server/logs
+      # 如果需要自定义配置文件，可以挂载（可选）
+      # - ./config:/server/config:ro
+
+    # 健康检查配置
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:8081/mcp', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    # 日志配置 - 限制日志大小
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    # 资源限制（可选）
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '1.0'
+    #       memory: 512M
+    #     reservations:
+    #       cpus: '0.5'
+    #       memory: 256M
+
+    # 网络配置（可选）
+    # networks:
+    #   - mcp-network
+
+# 自定义网络（可选）
+# networks:
+#   mcp-network:
+#     driver: bridge

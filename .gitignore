@@ -3,3 +3,4 @@ node_modules/
 .npmignore
 .env.example
 QUALITY_IMPROVEMENTS.md
+out\DOCKER_DEPLOY.md

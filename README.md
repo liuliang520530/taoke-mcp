@@ -12,6 +12,13 @@ https://github.com/liuliang520530/taoke-mcp/
 
 https://www.bilibili.com/video/BV1tE5jzLEMu/
 
+
+## smithery服务托管
+https://smithery.ai/server/@liuliang520530/taoke-mcp
+
+## 支持docker部署
+
+
 ## 官方文档
 
 https://mcp.sinataoke.cn/docs

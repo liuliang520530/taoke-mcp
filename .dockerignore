@@ -1,0 +1,80 @@
+# Git 相关
+.git
+.gitignore
+.gitattributes
+
+# 文档
+*.md
+!DOCKER_DEPLOY.md
+LICENSE
+
+# 开发工具配置
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# 日志文件
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 测试相关
+test
+tests
+*.test.js
+*.test.ts
+coverage
+
+# 依赖（会在容器内重新安装）
+node_modules
+
+# 临时文件
+.tmp
+.temp
+*.tmp
+
+# 操作系统相关
+.DS_Store
+Thumbs.db
+
+# 环境变量文件（包含敏感信息）
+.env
+.env.*
+!.env.example
+
+# Docker 相关
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# 源代码（out 目录只需要构建产物）
+src
+scripts
+pdd-sdk-new
+
+# TypeScript 配置
+tsconfig.json
+tsconfig.*.json
+
+# 构建工具配置
+webpack.config.js
+.babelrc
+.eslintrc
+.prettierrc
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+
+node_modules/
+.smithery
+.npmignore
+.env.example
+QUALITY_IMPROVEMENTS.md
+out\DOCKER_DEPLOY.md
+
