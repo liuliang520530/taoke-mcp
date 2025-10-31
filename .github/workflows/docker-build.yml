@@ -54,16 +54,46 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      # 同步 README 到 Docker Hub
+      - name: Update Docker Hub Description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: liuliang520500/taoke-mcp
+          readme-filepath: ./README.md
+
+      # 设置 Node.js 环境（用于发布到 npm）
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      # 发布到 npm
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       # 详细的构建摘要
       - name: Build summary
         run: |
-          echo "## ✅ Docker 镜像构建成功" >> $GITHUB_STEP_SUMMARY
+          echo "## ✅ 构建和发布成功" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**版本**: ${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🐳 Docker 镜像" >> $GITHUB_STEP_SUMMARY
           echo "**平台**: linux/amd64, linux/arm64" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### 使用方法" >> $GITHUB_STEP_SUMMARY
           echo '```bash' >> $GITHUB_STEP_SUMMARY
           echo "docker pull liuliang520500/taoke-mcp:latest" >> $GITHUB_STEP_SUMMARY
           echo "docker pull liuliang520500/taoke-mcp:${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📦 npm 包" >> $GITHUB_STEP_SUMMARY
+          echo '```bash' >> $GITHUB_STEP_SUMMARY
+          echo "npm install @liuliang520500/sinataoke_cn@${{ env.VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "# 或" >> $GITHUB_STEP_SUMMARY
+          echo "npm install @liuliang520500/sinataoke_cn@latest" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY

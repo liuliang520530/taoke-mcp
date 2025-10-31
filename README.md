@@ -17,7 +17,22 @@ https://www.bilibili.com/video/BV1tE5jzLEMu/
 https://smithery.ai/server/@liuliang520530/taoke-mcp
 
 ## 支持docker部署
+https://hub.docker.com/r/liuliang520500/taoke-mcp
 
+```shell
+docker run -dit \
+--name taoke-mcp  \
+--restart always \
+-p 8081:8081 \
+-e ENV_URL=https://config.sinataoke.cn/api/mcp/secret \
+-e ENV_SECRET=url:mcp.sinataoke.cn \
+-e ENV_OVERRIDE=false \
+liuliang520500/taoke-mcp
+
+
+你可以添加更多的环境变量 -e，参考下面的stdio配置
+
+```
 
 ## 官方文档
 
@@ -74,7 +89,7 @@ https://jinbao.pinduoduo.com/open.html?client_id=313cc43a30cf487da0a336d9f2df7de
 
 ### 使用 MCP 配置文件
 
-您也可以使用 MCP 配置文件来启动服务。创建一个名为 `mcp.json` 的文件，内容如下：
+您也可以使用 MCP 配置文件来启动服务。创建一个名为 `mcp.json` 的文件，内容如下【stdio配置】：
 
 ```json
 {
