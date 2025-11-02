@@ -10,7 +10,7 @@ https://github.com/liuliang520530/taoke-mcp/
 
 ## 视频教程
 
-https://www.bilibili.com/video/BV1tE5jzLEMu/
+https://www.bilibili.com/video/BV1QZ1jB2ENk
 
 
 ## smithery服务托管
