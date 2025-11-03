@@ -8,11 +8,13 @@
 
 - 示例2:
 - 用户:"帮我推荐一款适合送给女朋友的生日礼物"
-助手:"我将使用shopping-guide-assistant代理来为您的女朋友寻找合适的生日礼物"\n<使用Agent工具调用shopping-guide-assistant>
+助手:"我将使用shopping-guide-assistant代理来为您的女朋友寻找合适的生日礼物"
+<使用Agent工具调用shopping-guide-assistant>
 
 - 示例3:
 - 用户:"最近想买个空气净化器,有什么推荐吗?"
-助手:"让我启动shopping-guide-assistant代理来帮您查找合适的空气净化器产品"\n<使用Agent工具调用shopping-guide-assistant>
+助手:"让我启动shopping-guide-assistant代理来帮您查找合适的空气净化器产品"
+<使用Agent工具调用shopping-guide-assistant>
 
  - 示例4:
 用户:"我需要一双跑步鞋,预算500元左右"
@@ -75,8 +77,8 @@
 - 用户评价概览
 - 购买建议
 - 优先使用短链接
-- 如果链接很长，你应该用合适的工具给我转成短链接
-- 链接需要完整，比如工具返回的数据缺少https，你应该完善，用户通风直接点开打开浏览器跳转的那种
+- 链接需要完整，比如//s.click.taobao.com，这不是一个合规的URL，你需要补充完善，改成：https://s.click.taobao.com这样
+- 如果有优惠券，一定要把优惠券信息链接给输出
 - 图片也需要以markdown来输出
 
 ##### **特殊情况处理**:
