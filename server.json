@@ -1,0 +1,67 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.liuliang520530/taoke-mcp",
+  "description": "淘宝联盟、京东联盟、多多进宝全平台 MCP 服务 - 支持链接转换、商品查询、订单管理等电商营销功能",
+  "status": "active",
+  "repository": {
+    "url": "https://github.com/liuliang520530/taoke-mcp",
+    "source": "github"
+  },
+  "version": "2.0.5",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registry_type": "npm",
+      "registry_base_url": "https://registry.npmjs.org",
+      "identifier": "@liuliang520500/sinataoke_cn",
+      "version": "2.0.5",
+      "transport": {
+        "type": "stdio"
+      },
+      "environment_variables": [
+        {
+          "description": "淘宝联盟 PID，格式: mm_xxx_xxx_xxx",
+          "is_required": true,
+          "format": "string",
+          "is_secret": false,
+          "name": "TAOBAO_PID"
+        },
+        {
+          "description": "淘宝 Access Token，通过授权链接获取",
+          "is_required": true,
+          "format": "string",
+          "is_secret": true,
+          "name": "TAOBAO_SESSION"
+        },
+        {
+          "description": "京东联盟 Key，从 union.jd.com 后台获取",
+          "is_required": false,
+          "format": "string",
+          "is_secret": true,
+          "name": "JD_KEY"
+        },
+        {
+          "description": "京东联盟 PID",
+          "is_required": false,
+          "format": "string",
+          "is_secret": false,
+          "name": "JD_PID"
+        },
+        {
+          "description": "拼多多推广位 PID，从 jinbao.pinduoduo.com 获取",
+          "is_required": false,
+          "format": "string",
+          "is_secret": false,
+          "name": "PDD_PID"
+        },
+        {
+          "description": "拼多多 Access Token",
+          "is_required": false,
+          "format": "string",
+          "is_secret": true,
+          "name": "PDD_SESSION_TOKEN"
+        }
+      ]
+    }
+  ]
+}
