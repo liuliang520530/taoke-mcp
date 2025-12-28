@@ -4,7 +4,7 @@ WORKDIR /server
 
 COPY . /server/
 
-RUN npm install --production --ignore-scripts \
+RUN npm install --production --ignore-scripts --legacy-peer-deps && \
     apk add --no-cache tzdata && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone
