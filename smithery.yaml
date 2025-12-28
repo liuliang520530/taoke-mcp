@@ -4,5 +4,42 @@ startCommand:
     type: http
     configSchema:
         type: object
-        description: No configuration required
-    exampleConfig: {}
+        description: "淘客 MCP 服务配置 - 支持淘宝、京东、拼多多三大电商平台"
+        required:
+            - TAOBAO_PID
+            - TAOBAO_SESSION
+        properties:
+            TAOBAO_PID:
+                type: string
+                title: "淘宝 PID"
+                description: "淘宝联盟 PID，格式: mm_xxx_xxx_xxx"
+            TAOBAO_SESSION:
+                type: string
+                title: "淘宝授权 Token"
+                description: "淘宝 Access Token，通过授权链接获取"
+            JD_KEY:
+                type: string
+                title: "京东 Key"
+                description: "京东联盟 Key，从 union.jd.com 后台获取"
+            JD_PID:
+                type: string
+                title: "京东 PID"
+                description: "京东联盟 PID"
+            PDD_PID:
+                type: string
+                title: "拼多多 PID"
+                description: "拼多多推广位 PID，从 jinbao.pinduoduo.com 获取"
+            PDD_SESSION_TOKEN:
+                type: string
+                title: "拼多多授权 Token"
+                description: "拼多多 Access Token"
+    exampleConfig:
+        TAOBAO_PID: "mm_123456_789_123"
+        TAOBAO_SESSION: "your-taobao-token"
+        JD_KEY: "your-jd-key"
+        JD_PID: "your-jd-pid"
+        PDD_PID: "your-pdd-pid"
+        PDD_SESSION_TOKEN: "your-pdd-token"
+build:
+    dockerfile: "Dockerfile"
+    dockerBuildPath: "."
