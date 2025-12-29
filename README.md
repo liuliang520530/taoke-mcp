@@ -76,7 +76,7 @@ https://oauth.taobao.com/authorize?response_type=token&client_id=34297717&state=
 
 # 拼多多授权链接
 
-https://jinbao.pinduoduo.com/open.html?client_id=313cc43a30cf487da0a336d9f2df7de2&response_type=code&redirect_uri=http%3A%2F%2Fddk.mintaoke.cn%2FApi%2Fget_access_token&view=web
+https://jinbao.pinduoduo.com/open.html?client_id=313cc43a30cf487da0a336d9f2df7de2&response_type=code&redirect_uri=http%3A%2F%2Fddk.weiququ.cn%2FApi%2Fget_access_token&view=web
 
 # 拼多多 PID 授权
 
