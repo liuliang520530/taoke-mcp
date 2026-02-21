@@ -4,6 +4,10 @@
 
 淘宝联盟，京东联盟，多多进定全平台 MCP 服务是一个基于 Model Context Protocol (MCP) 的服务，支持淘宝、京东、拼多多三大电商平台的链接转换和商品推广功能，商品搜索等等一系列工具
 
+<a href="https://glama.ai/mcp/servers/@liuliang520530/taoke-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@liuliang520530/taoke-mcp/badge" alt="Taoke MCP server" />
+</a>
+
 # github:
 
 https://github.com/liuliang520530/taoke-mcp/
