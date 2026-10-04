@@ -1,6 +1,6 @@
 {
 	"name": "@liuliang520500/sinataoke_cn",
-	"version": "2.0.9",
+	"version": "2.0.10",
 	"description": "淘宝联盟，多多进宝全平台MCP服务 - 支持淘宝、拼多多平台【京东已下线】",
 	"type": "commonjs",
 	"main": "dist/index.js",
